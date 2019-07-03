@@ -1,5 +1,16 @@
 #!/usr/bin/env python
 
+"""
+
+Dieses Skript bietet ein Gerüst für die Investoptimierung eines Energiesystems mit oemof.
+
+* Lade Eingangsdaten mit pandas
+* Um das Modell zu vervollstaendigen sollen
+  1. Die installierten Leistungen zuerst manuell angepasst werden, um Strombezug aus shortage zu vermeiden.
+  2. Die beiden Kraftwerke mit einem Invest()-Objekt versehen werden, um ihre Installierte Leistung zu optimieren.
+
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
