@@ -27,3 +27,9 @@ In the terminal simply type
 ```
 jupyter lab
 ```
+
+## Select a different branch
+After you cloned the repositor, you can checkout another branch
+```
+git checkout <name of the branch>
+```
