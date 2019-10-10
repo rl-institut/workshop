@@ -22,6 +22,23 @@ Here is a template for new release sections
 
 ### Changed
 
+
+## [0.2.0] 2019-10-11
+
+### Added
+- workshop on test driven development (#15)
+
+## [0.1.1] 2019-07-10
+
+### Added
+- CHANGELOG.md
+- pandas notebooks examples
+- solutions to exercises
+- html versions of files for oemof
+
+### Changed
+- README.md
+
 ## [0.1.0] 2019-07-03
 
 ### Added
@@ -32,6 +49,5 @@ Here is a template for new release sections
 - oemof exercises
 - CHANGELOG.md
 - requirements.txt
-
 ### Changed
 - README.md
