@@ -1,0 +1,83 @@
+\begin{frame}{Unit Tests: Idea}
+Goal:
+\begin{itemize}
+\item Isolate each part of the program and show that the individual parts are correct
+\item Allows refactoring of code at a later date, and makes sure the module is still working correctly
+\end{itemize}
+How:
+\begin{itemize}
+\item Many small independent and isolated tests
+\item Automated tests run by developer
+\item Used in TDD
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Unit Tests: Rules}
+Unit tests should be:
+\begin{description}
+\item[small] e.g. concentrate on single criteria, so that failing of a test directly points to underlying error \\
+Rule of thumb: Consider if the test is a logical AND between conditions or a logical OR . In the former case go for multiple assertions, in the latter create multiple test functions.
+\item[fast] in order to run whole test set after each change/save to the code
+\item[idempotent] e.g. should be order-independent and not rely on each other
+\item[isolated] e.g. should be independent of environment or external APIs
+\end{description}
+\end{frame}
+
+\begin{frame}{Test flows and types}
+A component deals with several messages\footnote{Link: \url{https://speakerdeck.com/skmetz/magic-tricks-of-testing-railsconf?slide=38}}.
+Messages can be differentiated into \textit{incoming}, \textit{outgoing} and \textit{private} messages and two different types (\textit{query} and \textit{command}).\\
+\hfill\\
+Message flows can be described by tuple \textit{(source, origin)}:
+\begin{description}
+\item[Incoming] (outside, self)
+\item[Outgoing] (self, outside)
+\item[Private] (self, self)
+\end{description}
+Message types:
+\begin{description}
+\item[Query] Return something, change nothing
+\item[Command] Return nothing, change something
+\end{description}
+\end{frame}
+
+\begin{frame}{Test flows and types}
+How to test those 6 cases (3 flows x 2 types)?
+\begin{description}
+\item[Incoming query] \hfill\\
+ Easy test; assert result of query
+\item[Incoming command] \hfill\\
+Call command and check changes by query
+\item[Outgoing query/command] \hfill\\
+External API not part of test, so mock external API and check only if query/command is sent
+\item[Private query/command] \hfill\\
+Do not test!\\
+Implicitly tested by incoming/outgoing tests; test only if you think you should for some reason!
+\end{description}
+\end{frame}
+
+\begin{frame}{Test flows and types: Summary}
+\centering\begin{tabular}{ l c c}
+  \textbf{Flow} & \textbf{Type} & \textbf{Test?} \\
+  \hline
+  Incoming & Query & Yes \\
+  Incoming & Command & Yes \\
+  Outgoing & Query & Mock \\
+  Outgoing & Command & Mock \\
+  Private & Query & No/Maybe \\
+  Private & Command & No/Maybe \\
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Other Tests}
+\begin{description}
+\item[Integration Test] \hfill\\
+Occurs after unit testing; combines multiple unit tests to a group and tests group outcome.\\
+Example:\\
+Login at GUI $\rightarrow$ API call $\rightarrow$ DB check $\rightarrow$ login
+\item[Regression Test] \hfill \\
+Re-running functional and non-functional tests to ensure that previously developed and tested software still performs after a change.
+\item[Smoke Test] \hfill\\
+Smoke tests are a subset of test cases that cover the most important functionality of a component or system, used to aid assessment of whether main functions of the software appear to work correctly.
+\item[...]
+\end{description}
+\end{frame}
