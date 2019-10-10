@@ -15,7 +15,7 @@ def test_add_two_numbers():
 # Exercise A
 # add a method to the class Calc with the following requirements :
 # - it shall perform the multiplication of more than 2 numbers
-# - it shall throw a ValueError exception a multiplication by zero occur
+# - it shall throw a ValueError exception when a multiplication by zero occur
 
 # Exercise B
 # add a method to the class Calc with the following requirements :
@@ -25,5 +25,5 @@ def test_add_two_numbers():
 
 # Tip - to test error throwing, use this syntax:
 #
-# with pytest.raise(<Name of your Error>):
+# with pytest.raises(<Name of your Error>):
 #     # write the code which should raise your error here
