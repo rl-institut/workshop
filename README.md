@@ -3,6 +3,11 @@ Gather the workshops content offered by the Reiner Lemoine Institut
 
 ## Directories
 Each folder contains a single workshop
+- oemof
+- python
+- python-pandas
+    the original source of this workshop is https://github.com/jvns/pandas-cookbook
+-test-driven-development
 
 ## Getting started
 clone the repository locally with

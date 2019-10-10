@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue
+]{hyperref}
+
+% Overlays for TIKZ pictures
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+\title{Preparation for workshop "Clean architecture"}
+\author{Guido Plessmann, Pierre-Francois Duc, Hendrik Huyskens}
+
+\begin{document}
+
+\maketitle
+
+\section{Short infos}
+\begin{itemize}
+\item The workshop addresses (python-) developers with at least \textbf{average programming skills}
+\item Please bring your \textbf{laptop} to the workshop
+\item As there might be no internet - please follow installation instructions (below) \textbf{before} the workshop
+\item Feel free to contact me (Hendrik) if you need help!
+\end{itemize}
+
+\section{Installation}
+
+\begin{itemize}
+\item Install conda (\href{https://docs.conda.io/en/latest/miniconda.html}{miniconda} or \href{https://www.anaconda.com/distribution/}{anaconda})
+\item Clone/download \href{https://github.com/rl-institut/tdd_workshop}{workshop repository}:
+\begin{lstlisting}
+git clone https://github.com/rl-institut/tdd_workshop.git
+\end{lstlisting}
+\item (optional) rename conda environment in environment.yml file
+\lstinputlisting{../environment.yml}
+\item 
+\href{https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html\#creating-an-environment-from-an-environment-yml-file}{Install conda environment from file} (open miniconda/anaconda prompt terminal):
+\begin{lstlisting}
+conda env create -f environment.yml
+\end{lstlisting}
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,60 @@
+
+\usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+\usecolortheme{default} % or try albatross, beaver, crane, ...
+\usefonttheme{default}  % or try serif, structurebold, ...
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{itemize items}{\raisebox{-0.em}{\scalebox{1}{\textbullet}}}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+
+
+%%%% adjustments to approximate RLI-template
+
+% Colors
+\definecolor{rliblue}{HTML}{002E4F}
+\setbeamercolor{title}{fg=rliblue}
+\setbeamercolor{frametitle}{fg=rliblue}
+\setbeamercolor{normal text}{fg=rliblue}
+\setbeamercolor{alerted text}{fg=rliblue}
+\setbeamercolor{section in head/foot}{bg=rliblue}
+\setbeamercolor{author in head/foot}{bg=rliblue}
+\setbeamercolor{date in head/foot}{fg=rliblue}
+
+% Itemize environment
+\setbeamertemplate{itemize item}{\color{rliblue}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{rliblue}$\blacktriangleright$}
+\setbeamercolor{enumerate item}{fg=rliblue}
+\setbeamercolor{enumerate subitem}{fg=rliblue}
+
+% Fonts
+\setbeamerfont{author}{size={\fontsize{10}{10}}}
+
+\pgfdeclareimage[width=\paperwidth]{mybackground}{pics/background.pdf}
+\setbeamertemplate{title page}{
+        \begin{picture}(0,0)
+            \put(-29,-157){%
+                \pgfuseimage{mybackground}
+            }
+
+            \put(0,-110.7){%
+                \begin{minipage}[b][45mm][t]{.5\textwidth}
+                    \usebeamerfont{title}{\inserttitle\par\vspace{1.cm}}
+                    \usebeamerfont{author}{\insertauthor\par}
+                    \usebeamerfont{institute}{\insertinstitute\par}
+                    \usebeamerfont{date}{\insertdate\par}
+                \end{minipage}
+            }
+        \end{picture}
+    }
+    
+
+\usepackage{tikz}
+\addtobeamertemplate{headline}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node at([shift={(.40\paperwidth,-.80)}]current page.north) {\includegraphics[scale=0.1]{pics/RLI_logo.pdf}};
+\end{tikzpicture}}
+
+\usepackage{multicol}

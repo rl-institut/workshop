@@ -22,6 +22,12 @@ Here is a template for new release sections
 
 ### Changed
 
+
+## [0.2.0] 2019-10-11
+
+### Added
+- workshop on test driven development (#15)
+
 ## [0.1.1] 2019-07-10
 
 ### Added
@@ -43,6 +49,5 @@ Here is a template for new release sections
 - oemof exercises
 - CHANGELOG.md
 - requirements.txt
-
 ### Changed
 - README.md
