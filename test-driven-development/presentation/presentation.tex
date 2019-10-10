@@ -1,0 +1,188 @@
+\documentclass{beamer}
+
+\input{template/2019-08-23-rli-beamer-template-stylev0-0.tex}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+
+% Overlays for TIKZ pictures
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+\title[Yo]{\textbf{RLI Klausur Workshop} \\ Softwarearchitektur und best-practice Softwareentwicklung}
+\author{Hendrik Huyskens \\
+Pierre-Francois Duc\\
+Guido Pleßmann\\}
+\institute{Reiner Lemoine Institut}
+\date{24. September 2019}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Agenda des Workshops}
+ \begin{enumerate}
+  \item Einführung: Software design und Clean Architecture
+  %\item Setup a Python project with Cookiecutter
+  \item Tutorial: Test-Driven Development (TDD)
+  \item Unit Tests
+  \item Wrap-up
+ \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Software design}
+In Anlehnung an das Buch \emph{Clean architectures in Python} (L. Giordani, 2019)
+ 
+ \vspace{15pt}
+ \begin{itemize}
+  \item Methoden um Lösungen für Probleme zu finden
+  \item \emph{Patterns}\footnote{\emph{Design Patterns: Elements of Reusable Object-Oriented Software},Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides, 1994}: formalisierte best-practice Vorgehensweisen
+  \item Versteh warum eine Methode zu einer Lösung führt und pass' sie für dich an!
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Software Architektur}
+
+\begin{itemize}
+ \item Produktionssysteme (z.B. software packages) bestehen auf Komponenten und Verbindungen
+ \item In einem Prozess beschreibt die Architektur wie Komponenten miteinander verbunden sind -- immer auf einem bestimmten \emph{Zoom Level}
+ \item Durch reinzoomen werden die Details Boxen, die zuvor Blackboxen mit Verbindungen ihrer Inputs und Outputs waren, sichtbar
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Architekturbeispiel: Shop}
+% Mit TIKZ verschiedene Zoom Level auf den Prozess des Shopbetriebs grafisch darstellen
+
+
+
+\tikzstyle{format} = [draw, thin, fill=blue!20, minimum width=2cm, minimum height=2cm]
+
+\begin{figure}
+ \begin{tikzpicture}[node distance=4cm, auto, thick]
+  \node[format] (Laden) {Laden};
+  \node[format, visible on=<2->] [right of=Laden] (Kunde) {Kunde};
+  \draw[<-, transform canvas={yshift=15pt}, visible on=<3->] (Laden) -- (Kunde) node[midway] {Geld};
+  \draw[<-, transform canvas={yshift=-15pt}, visible on=<4->] (Kunde) -- (Laden) node[midway] {Waren};
+\end{tikzpicture}
+
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Clean architecture}
+ \begin{quote}
+  
+The clean architecture is the opposite of spaghetti code, where everything is interlaced and there
+are no single elements that can be easily detached from the rest and replaced without the whole
+system collapsing.
+ \end{quote}
+ 
+ \begin{itemize}
+  \item Was befindet sich wo und warum?!
+  \item Es gibt keine Wunderarchitektur die Universal angewandt werden kann
+  \item Eher Prinzipien, die auf das spezielle Problem angepasst, verwendet werden können
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Clean architecture}
+
+% TODO: Was bedeuten die verschiedenen Level anhand eines Beispiels?
+
+ \begin{figure}
+ \includegraphics[width=.9\textwidth]{pics/Clean_architecture_circle.jpeg}
+\caption{Source: Uncle Bob (\url{https://blog.cleancoder.com})}
+\end{figure} 
+
+\end{frame}
+
+
+\begin{frame}{Clean architecture}
+
+% Links
+% https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/
+% https://www.codingblocks.net/podcast/clean-architecture-make-your-architecture-scream/
+% https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+
+
+\begin{columns}
+ 
+\begin{column}{0.65\textwidth}
+ \begin{figure}
+ \includegraphics[width=\textwidth]{pics/Clean_architecture_cone.jpeg}
+\caption{Source: Michael Outlaw (\url{https://www.codingblocks.net})}
+\end{figure} 
+\end{column}
+
+\begin{column}{0.45\textwidth}
+ 
+ \begin{itemize}
+  \item Innere (abstraktere) Level kennen die äußeren Level nicht $\rightarrow$ Kommunikation über API
+  \item Data flow von außen nach innen
+  \item Dependencies zeigen nach innen
+ \end{itemize}
+\end{column}
+\end{columns}
+\vspace{15pt}
+% Welche Klassen/Functions gehören gemeinsam in ein Level?
+\end{frame}
+
+
+\begin{frame}{Heutiger Workshop}
+ \emph{Und wie bringen wir das heute alles unter?}
+ 
+ \vspace{10pt}
+ 
+ Antwort: gar nicht.\\ Wir behandeln heute Test-Driven Development (TDD) und Unit Tests. Am Ende des Workshops sprechen wir über Anschlussveranstaltungen
+\end{frame}
+
+
+\include{unit_tests}
+
+
+\begin{frame}{Wrap-up}
+
+\centering \LARGE Warum sollte ich TDD verwenden, obwohl es viel mehr Zeit braucht???
+ 
+\end{frame}
+
+
+\begin{frame}{Follow-up: nächste Workshops}
+Alle sind willkommen beizutragen!
+
+\vspace{15pt}
+
+Zum Beispiel Teile aus diesen beiden Büchern
+ \begin{itemize}
+  \item \emph{Clean architectures in Python}
+  \item \emph{Design Patterns: Elements of Reusable Object-Oriented Software}
+ \end{itemize}
+
+ \vspace{15pt}
+ 
+ Sprecht Hendrik an, er wird das koordinieren
+ 
+\end{frame}
+
+
+\begin{frame}{Feedback}
+\LARGE Was war gut? Was könnte besser sein? 
+\end{frame}
+
+
+
+\end{document}
+
