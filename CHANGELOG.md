@@ -22,6 +22,12 @@ Here is a template for new release sections
 
 ### Changed
 
+
+## [0.2.0] 2019-10-11
+
+### Added
+- workshop on test driven development (#15)
+
 ## [0.1.0] 2019-07-03
 
 ### Added
