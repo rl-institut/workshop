@@ -28,12 +28,16 @@ demand = Sink(
     }
 )
 
+ep_costs = annuity(capex=1000, n=25, wacc=0.03)
+
+print(ep_costs)
+
 pp1 = Source(
     label='powerplant_1',
     outputs={
         el_bus: Flow(
-            nominal_value=5,
-            variable_costs=1
+            variable_costs=5,
+            investment=Investment(ep_costs=ep_costs)
         )
     }
 )
