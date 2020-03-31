@@ -21,7 +21,8 @@ Here is a template for new release sections
 ### Added
 
 ### Changed
-
+- Sort workshops into folders according to duration, eg. 1-d workshops 
+- move existing workshop into 1-day-workshop folder
 
 ## [0.2.0] 2019-10-11
 
