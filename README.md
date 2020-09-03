@@ -9,6 +9,7 @@ Each folder contains a single workshop
     the original source of this workshop is https://github.com/jvns/pandas-cookbook
 - [test-driven-development](test-driven-development)
 - [plotly-dash](plotly-dash)
+- [flask](flask)
 
 ## Getting started
 clone the repository locally with
