@@ -3,11 +3,12 @@ Gather the workshops content offered by the Reiner Lemoine Institut
 
 ## Directories
 Each folder contains a single workshop
-- oemof
-- python
-- python-pandas
+- [oemof](oemof)
+- [python](python)
+- [python-pandas](python-pandas)
     the original source of this workshop is https://github.com/jvns/pandas-cookbook
--test-driven-development
+- [test-driven-development](test-driven-development)
+- [plotly-dash](plotly-dash)
 
 ## Getting started
 clone the repository locally with
@@ -34,7 +35,7 @@ jupyter lab
 ```
 
 ## Select a different branch
-After you cloned the repositor, you can checkout another branch
+After you cloned the repository, you can checkout another branch
 ```
 git checkout <name of the branch>
 ```

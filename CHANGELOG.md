@@ -19,7 +19,7 @@ Here is a template for new release sections
 ## [Unreleased]
 
 ### Added
-
+- workshop for plotly dash (#22)
 ### Changed
 
 
