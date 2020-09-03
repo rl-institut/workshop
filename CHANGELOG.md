@@ -20,6 +20,7 @@ Here is a template for new release sections
 
 ### Added
 - workshop for plotly dash (#22)
+- workshop for flask (#23)
 ### Changed
 
 
