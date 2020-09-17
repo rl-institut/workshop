@@ -19,10 +19,10 @@ def create_app(test_config=None):
 
     @app.route("/some-endpoint")
     def endpoint():
-        return render_template("index.html")
+        return render_template("different_view.html")
 
-    @app.route("/some-endpoint")
-    def endpoint_variable():
-        return render_template("index.html")
+    @app.route("/some-endpoint/<some_value>")
+    def endpoint_variable(some_value):
+        return render_template("different_view.html", n_banana=some_value)
 
     return app
