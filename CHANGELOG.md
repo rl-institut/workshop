@@ -22,6 +22,13 @@ Here is a template for new release sections
 
 ### Changed
 
+## [0.3.0] 2020-09-23
+
+### Added
+- workshop for plotly dash (#22, #25)
+- workshop for flask (#23, #25)
+- workshop for fastapi (#24)
+
 
 ## [0.2.0] 2019-10-11
 

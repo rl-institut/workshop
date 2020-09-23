@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    color: blue;
+}
+
+div {
+    color: black;
+    font-weight: 600;
+}
+
+#example-div {
+    color: magenta;
+}
+
+/* see https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+.horizontal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.highlighted{
+    border-color: red;
+    border-style: solid;
+    border-width: 1px;
+}
