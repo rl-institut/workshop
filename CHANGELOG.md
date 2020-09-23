@@ -19,8 +19,8 @@ Here is a template for new release sections
 ## [Unreleased]
 
 ### Added
-- workshop for plotly dash (#22)
-- workshop for flask (#23)
+- workshop for plotly dash (#22, #25)
+- workshop for flask (#23, #25)
 ### Changed
 
 
