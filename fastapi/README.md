@@ -1,8 +1,9 @@
 ## Framework
 
-[fastapi](https://fastapi.tiangolo.com/) is probably faster than flask, however I found flask a
- bit more easy at first to use flask. I think what make it strong is the conceurrency and
-  asnychronuous capability.
+[fastapi](https://fastapi.tiangolo.com/) is  [faster](https://medium.com/@ahmed.nafies/why-did-we-choose-fast-api-over-flask-and-django-for-our-restful-micro-services-77589534c036) than flask. However I found flask a bit more
+ easy at first to use. I think what makes fastapi strong is the concurrency and
+  asnychronuous capability. Its definition is similar to flask, making it easy to migrate from
+   flask to fastapi if needed.
 
 
 ## Requirements

@@ -3,13 +3,18 @@ Gather the workshops content offered by the Reiner Lemoine Institut
 
 ## Directories
 Each folder contains a single workshop
+### Energy system modelling
 - [oemof](oemof)
+### Programming language
 - [python](python)
 - [python-pandas](python-pandas)
     the original source of this workshop is https://github.com/jvns/pandas-cookbook
+### Coding development
 - [test-driven-development](test-driven-development)
+### Webapps
 - [plotly-dash](plotly-dash)
 - [flask](flask)
+- [fastapi](fastapi)
 
 ## Getting started
 clone the repository locally with
