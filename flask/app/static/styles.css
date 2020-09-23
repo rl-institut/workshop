@@ -1,0 +1,15 @@
+p {
+    color: blue;
+}
+
+.class_a {
+    color: red;
+}
+
+.class_b {
+    background-color: grey;
+}
+
+#needs_to_be_unique {
+    background-color: green;
+}
