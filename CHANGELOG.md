@@ -12,13 +12,15 @@ Here is a template for new release sections
 ### Added
 -
 ### Changed
--
+- 
 ### Removed
 -
 ```
 ## [Unreleased]
 
 ### Added
+- oemof workshop by @smartie2076 (from https://github.com/smartie2076/oemof_workshop) to rli oemof workshop repro into new folder 3-day-workshop
+- csv file with overview over workshops in oemof folder
 
 ### Changed
 
