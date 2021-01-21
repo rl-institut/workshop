@@ -1,0 +1,6 @@
+# config file for snakemake pipeline
+
+# max: 5
+number_of_eggs: 5
+
+cooking_temperature: 100
