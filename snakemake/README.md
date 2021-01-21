@@ -4,7 +4,7 @@ Let's cook some Spätzle!
 
 ## Installation
 
-    clone git@github.com:rl-institut/workshop.git /your/path/to/workshop/
+    clone https://github.com/rl-institut/workshop.git /your/path/to/workshop/
     cd /your/path/to/workshop/
     virtualenv --python=python3.8 /your/path/to/venv/
     source /your/path/to/venv/bin/activate
