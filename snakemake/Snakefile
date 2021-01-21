@@ -1,0 +1,65 @@
+import os
+
+configfile: "config.yml"
+
+target_files = [f"output/{file}" for file in ["spaetzle.txt",
+                                              "spaetzledruecker_clean.txt",
+                                              "mixer_clean.txt",
+                                              "pot_with_water_clean.txt"
+                                              ]
+                ]
+
+# you can put arbitrary python code here
+
+rule all:
+    input: target_files
+
+rule crack_egg:
+    input: "ingredients/egg{no}.txt"
+    output: "ingredients/egg{no}_cracked.txt"
+    shell: "cp {input} {output}"
+
+rule make_dough:
+    input:
+        # simple definition:
+        ingredients1=["ingredients/flour.txt",
+                      "ingredients/dunst.txt",
+                      "ingredients/salt.txt",
+                      "ingredients/water.txt"],
+        # let"s use the snakemake's expand function:
+        ingredients2=expand("ingredients/egg{no}_cracked.txt", no=range(1, config.get('number_of_eggs')+1)),
+        tools="tools/mixer.txt"
+    output:
+        dough="output/dough.txt",
+        dirty_tools="output/mixer_dirty.txt"
+    shell: # use shell command
+        """
+        cat {input.ingredients1} >> {output.dough}
+        cat {input.ingredients2} >> {output.dough}
+        touch {output.dirty_tools}
+        """
+
+rule cook:
+    input:
+        dough="output/dough.txt",
+        tools=expand("tools/{tool}.txt", tool=['spaetzledruecker', 'pot_with_water'])
+    output:
+        delicious_swabian_food="output/spaetzle.txt",
+        dirty_tools=expand("output/{tool}_dirty.txt", tool=['spaetzledruecker', 'pot_with_water'])
+    params:
+        temperature=config.get("cooking_temperature")
+    script: # use python script
+        "scripts/cook.py"
+
+rule do_the_dishes:
+    input: "output/{tool}_dirty.txt"
+    output: "output/{tool}_clean.txt"
+    shell: "cp {input} {output}"
+
+# rule to delete all outputs (reset the pipeline)
+rule clean_up:
+    shell:
+        """
+        rm -f ingredients/egg*_cracked.txt
+        rm -f output/*.txt
+        """
