@@ -1,4 +1,4 @@
-import os
+# This is the snakemake file
 
 configfile: "config.yml"
 

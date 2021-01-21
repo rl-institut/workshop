@@ -1,4 +1,4 @@
-# config file for snakemake pipeline
+# This is the config file for snakemake pipeline
 
 # max: 5
 number_of_eggs: 5
