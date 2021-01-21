@@ -1,0 +1,42 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{rli}[1][]
+{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,0.13*\paperheight); 
+  \fill[white] (0,0) rectangle(0.8*\the\paperwidth,1.2);
+
+  \draw (0,0) -- (0.79\paperwidth,0);
+  \node[anchor=north west] at (-0.17,0.9){\insertframetitle};
+  \node[anchor=north west,] at (0.81*\the\paperwidth,1){\includegraphics[height=0.95cm]{img/RLI_logo.pdf}};
+  \end{tikzpicture}
+}
+
+\defbeamertemplate*{footline}{rli}[1][]
+{
+    \ifnum \insertpagenumber=1
+      \leavevmode%
+      \hbox{%
+      \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{}%
+        % empty environment to raise height
+      \end{beamercolorbox}}%
+      \vskip0pt%
+    \else
+      \leavevmode%
+      % \hbox{%
+      \begin{beamercolorbox}[sep=1.35ex,wd=.334\paperwidth,ht=4.35ex,dp=0ex,left]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\hspace{3.8em}\insertdate
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[sep=1.35ex,wd=.334\paperwidth,ht=4.35ex,dp=0ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertinstitute
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[sep=1.35ex,wd=.334\paperwidth,ht=4.35ex,dp=0ex,right]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertpagenumber\hspace{3.8em}
+      \end{beamercolorbox}
+      % }%
+      \vskip0pt%
+    \fi
+}
+
+\mode<all>
