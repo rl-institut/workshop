@@ -13,8 +13,8 @@ Let's cook some Spätzle!
 ### Windows
 
 * git bash
+move to the directory where you would like to clone the repository
 ```git 
-cd D:/git/github/rl_institut/
 git clone git@github.com:rl-institut/workshop.git
 cd workshop
 git pull
