@@ -33,6 +33,8 @@ Build the graph (DAG) by
 
 You can find the workshop slides in [slides/slides.md](slides/slides.md)
 
+The minutes of the session can be found here: [slides/presentation_log.md](slides/presentation_log.md)
+
 ## Useful links
 
 - [Snakemake on github](https://github.com/snakemake/snakemake)
