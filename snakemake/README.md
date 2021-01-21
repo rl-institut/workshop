@@ -4,11 +4,29 @@ Let's cook some Spätzle!
 
 ## Installation
 
-    clone git@github.com:rl-institut/workshop.git /your/path/to/workshop/
+    clone https://github.com/rl-institut/workshop.git /your/path/to/workshop/
     cd /your/path/to/workshop/
     virtualenv --python=python3.8 /your/path/to/venv/
     source /your/path/to/venv/bin/activate
     pip install -r requirements.txt
+
+### Windows
+
+* git bash
+move to the directory where you would like to clone the repository
+```git 
+git clone https://github.com/rl-institut/workshop.git
+cd workshop
+git pull
+```
+    
+* cmd
+move to the `snakemake` folder inside the cloned `workshop` repository
+```cms
+conda create --name d_py38_snakemake python=3.8
+activate d_py38_snakemake
+pip install -r requirements.txt
+```
 
 ## Cooking
 
