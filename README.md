@@ -11,6 +11,8 @@ Each folder contains a single workshop
     the original source of this workshop is https://github.com/jvns/pandas-cookbook
 ### Coding development
 - [test-driven-development](test-driven-development)
+### Data processing and workflow
+- [snakemake](snakemake)
 ### Webapps
 - [plotly-dash](plotly-dash)
 - [flask](flask)
