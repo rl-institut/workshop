@@ -7,7 +7,7 @@ file = open(dough, "r")
 ingredients = file.read()
 file.close()
 
-print(f"The dough contians the following ingredients:\n{ingredients}")
+print(f"The dough contains the following ingredients:\n{ingredients}")
 print(f"Wait for the water to reach {params.get('temperature')} degrees...")
 print("Press the Spätzledrücker...")
 print("Wait a couple of minutes...")
