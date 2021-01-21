@@ -21,8 +21,8 @@ git pull
 ```
     
 * cmd
+move to the `snakemake` folder inside the cloned `workshop` repository
 ```cms
-cd D:/git/github/rl_institut/workshop/snakemake
 conda create --name d_py38_snakemake python=3.8
 activate d_py38_snakemake
 pip install -r requirements.txt
