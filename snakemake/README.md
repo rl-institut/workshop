@@ -25,6 +25,10 @@ To clean all produced data (reset pipeline), use
 
     snakemake -j1 -p clean_up
 
+Build the graph (DAG) by
+
+    snakemake -j1 --dag | dot -Tsvg > dag.svg
+
 ## Presentation
 
 You can find the workshop slides in [slides/slides.md](slides/slides.md)
