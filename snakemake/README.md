@@ -15,7 +15,7 @@ Let's cook some Spätzle!
 * git bash
 move to the directory where you would like to clone the repository
 ```git 
-git clone git@github.com:rl-institut/workshop.git
+git clone https://github.com/rl-institut/workshop.git
 cd workshop
 git pull
 ```
