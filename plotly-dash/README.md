@@ -1,14 +1,61 @@
+# Important to install before the workshop
+- anaconda https://www.anaconda.com/distribution/
+- git https://git-scm.com/downloads
+## Somewhat important to install before the workshop
+- pycharm community edition https://www.jetbrains.com/de-de/pycharm/download
 
-## Requirements
+# Start
+open an anaconda prompt (use your windows key and type "anaconda prompt", or look for "anaconda prompt" in the programs)
 
-* python 3.6 or higher
+## commands to create a clone of a github repository
 
-## Getting started
+!! open a new anaconda prompt first for these commands
 
-1. Clone the repository locally
-2. [Setup](https://oemof.readthedocs.io/en/latest/installation_and_setup.html#using-virtualenv-community-driven) a virtual environment.
-3. Install the dependencies `pip install -r requirements.txt` or `conda env create --file=environment.yml`
-4. run the app locally with `python app.py`, you can visualize it in your browser under 
+-try to move to the desktop folder
+`cd Desktop`
+
+-if this does not work you can just forget this step, it is not so important
+
+-clone the repository
+
+`git clone https://github.com/rl-institut/workshop.git`
+
+-move to the create folder (by default in that case "workshop")
+
+`cd workshop`
+
+-create your own branch (no spaces in the branch name)
+
+`git checkout -b name_of_your_branch`
+
+## create a virtual environment
+!! you can do it from the main Anaconda programm (click on "Environnements" and then click on the "create" button at the bottom, choose python 3.6 or python 3.7)
+
+-in the same anaconda prompt type
+
+`conda create --name workshop_env python=3.8`
+
+Note your environnment name here is `workshop_env` but you could change it to another name. If you do you need to replace `workshop_env` by your other name in the following commands
+
+-you should be able to see it with the following command
+
+`conda env list`
+
+-activate the environment with the following command
+
+`conda activate workshop_env`
+
+!! you should see the name "workshop_env" on the left of your command line (in parenthesis)
+
+
+## Install dependencies and run the app
+
+1. In your terminal, move to the folder `plotly-dash` within the `workshop` repository you just cloned.
+   
+`cd plotly-dash`
+
+2. Install the dependencies `pip install -r requirements.txt`
+3. run the app locally with `python app.py`, you can visualize it in your browser under 
 `http://127.0.0.1:8050`
  
 ## Resources
