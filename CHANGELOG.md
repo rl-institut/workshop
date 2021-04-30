@@ -19,7 +19,7 @@ Here is a template for new release sections
 ## [Unreleased]
 
 ### Added
-- workshop for classes (#31)
+- workshop for classes (#31, #32)
 ### Changed
 
 ## [0.3.0] 2020-09-23
