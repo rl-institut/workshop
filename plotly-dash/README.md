@@ -71,7 +71,7 @@ With Anaconda this is a piece of cake (and takes as long as eating one).
 7. The Python packages get installed in a dedicated environment (like a folder, just for software).
 In order to use them for the workshop we have to tell Anaconda to use this specific environment (to `activate` it):
 ```
-    > conda activate plotly_workshop
+    > conda activate workshop_env
 ```
 
 ## Test your installation
@@ -94,7 +94,7 @@ To restart the app e.g. during the workshop, you need to open the Anaconda promp
 ```
     (open Anaconda prompt, then: )
     > cd Desktop/workshop/plotly-dash
-    > conda activate plotly_workshop
+    > conda activate workshop_env
     > python app.py
 ```
 
