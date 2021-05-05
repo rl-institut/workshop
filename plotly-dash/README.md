@@ -43,7 +43,7 @@ To change to your Desktop
     > git clone https://github.com/rl-institut/workshop.git
 ```
 
-3. Move into the freshly cloned repositor
+3. Move into the freshly cloned repository
 ```
     > cd workshop
 ```
