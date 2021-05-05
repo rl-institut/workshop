@@ -1,62 +1,103 @@
-# Important to install before the workshop
-- anaconda https://www.anaconda.com/distribution/
-- git https://git-scm.com/downloads
-## Somewhat important to install before the workshop
-- pycharm community edition https://www.jetbrains.com/de-de/pycharm/download
+# Preparation before the workshop
 
-# Start
-open an anaconda prompt (use your windows key and type "anaconda prompt", or look for "anaconda prompt" in the programs)
+## Software
 
-## commands to create a clone of a github repository
+We need Anaconda (a tool to help us manage install and manage Python) and git (a tool for versioning of source code).
 
-!! open a new anaconda prompt first for these commands
+Select and download the appropriate software from these websites:
 
--try to move to the desktop folder
-`cd Desktop`
+* Anaconda: https://www.anaconda.com/products/individual
+* git: https://git-scm.com/downloads
 
--if this does not work you can just forget this step, it is not so important
+We also recommend you to install an IDE of your choice.
+You can e.g. download and install the PyCharm Community Edition (https://www.jetbrains.com/de-de/pycharm/download).
 
--clone the repository
+## Opening the command prompt
 
-`git clone https://github.com/rl-institut/workshop.git`
+The Anaconda command prompt is from where we will execute all following commands.
 
--move to the create folder (by default in that case "workshop")
+### On Windows:
 
-`cd workshop`
+Open an "Anaconda Prompt" which is a command shell with anaconda correctly setup.
+If Anaconda is properly installed you can find it in your startup menu
+(windows key, then type "anaconda prompt" or look for it under "programs").
 
--create your own branch (no spaces in the branch name)
+### On Linux/MacOS:
 
-`git checkout -b name_of_your_branch`
+If you have correctly installed Anaconda and added it to your path simply open a command shell.
 
-## create a virtual environment
-!! you can do it from the main Anaconda programm (click on "Environnements" and then click on the "create" button at the bottom, choose python 3.6 or python 3.7)
+## Clone GitHub repository
 
--in the same anaconda prompt type
+First we clone the GitHub repository to retrieve all the workshop materials:
 
-`conda create --name workshop_env python=3.8`
+1. In the command prompt you opened before, navigate to the folder where you want to place your files using `cd`.
+In Windows your prompt after starting should show something like
+`C:\Users\<Your Username>\`.
+To change to your Desktop
+```
+    > cd Desktop
+```
 
-Note your environnment name here is `workshop_env` but you could change it to another name. If you do you need to replace `workshop_env` by your other name in the following commands
+2. Clone the repository
+```
+    > git clone https://github.com/rl-institut/workshop.git
+```
 
--you should be able to see it with the following command
+3. Move into the freshly cloned repository
+```
+    > cd workshop
+```
 
-`conda env list`
+4. And create your own workspace (in `git` called a `branch`).
+```
+    > git checkout -b <your_name>
+```
 
--activate the environment with the following command
+## Install required Python software
 
-`conda activate workshop_env`
+Next we need to install all Python packages required for the workshop.
+With Anaconda this is a piece of cake (and takes as long as eating one).
 
-!! you should see the name "workshop_env" on the left of your command line (in parenthesis)
+5. In the same command prompt as before, navigate to the subfolder `plotly-dash`
+```
+    > cd plotly-dash
+```
 
+6. Tell Anaconda to install the necessary software.
+```
+    > conda env create -f environment.yml
+```
 
-## Install dependencies and run the app
+7. The Python packages get installed in a dedicated environment (like a folder, just for software).
+In order to use them for the workshop we have to tell Anaconda to use this specific environment (to `activate` it):
+```
+    > conda activate workshop_env
+```
 
-1. In your terminal, move to the folder `plotly-dash` within the `workshop` repository you just cloned.
-   
-`cd plotly-dash`
+## Test your installation
 
-2. Install the dependencies `pip install -r requirements.txt`
-3. run the app locally with `python app.py`, you can visualize it in your browser under 
-`http://127.0.0.1:8050`
+If everything until here work, you can check your installation by running the prototype `plotly` app in your browser.
+
+8. In the prompt from above, type
+```
+    > python app.py
+```
+
+You should now be able to open the app in your browser with the address http://127.0.0.1:8050 .
+You should see some simple bar diagrams visualising something.
+
+To close and stop the app, close your browser and stopp the app in the Anaconda prompt by pressing `Ctrl + c`.
+
+You can now close your Anaconda prompt.
+To restart the app e.g. during the workshop, you need to open the Anaconda prompt again, navigate to the same folder, activate the environment and then you can run the app again:
+
+```
+    (open Anaconda prompt, then: )
+    > cd Desktop/workshop/plotly-dash
+    > conda activate workshop_env
+    > python app.py
+```
+
  
 ## Resources
 
