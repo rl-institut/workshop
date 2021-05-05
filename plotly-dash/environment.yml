@@ -1,9 +1,7 @@
-name: plotly_workshop
-channels:
-  - conda-forge
-  - defaults
+name: workshop_env
 dependencies:
-  - pandas
-  - dash
-  - pip
-  - python
+- python
+- pip
+
+- pip:
+   - -r requirements.txt
