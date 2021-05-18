@@ -28,3 +28,8 @@ div {
     border-style: solid;
     border-width: 1px;
 }
+
+.graphs-area{
+    display: flex;
+    flex-direction: row;
+}
