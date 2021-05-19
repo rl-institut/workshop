@@ -44,7 +44,6 @@ initial_map = go.Figure(
 )
 
 initial_map.update_layout(
-    title_text=init_data,
     geo=dict(
         showframe=False,
         showcoastlines=False,
@@ -52,10 +51,13 @@ initial_map.update_layout(
         lataxis_range=[0, 42],
         lonaxis_range=[35, 80],
     ),
+    height=450,
+    margin=dict(t=50, b=50, l=0, r=0),
 )
 
 # The children argument of any html component is what is inside the html tag
 demo_app.layout = html.Div(
+    className="background",
     children=[
         html.H1(
             children="Presenting the results from the ENSPRESO renewable potential study",
@@ -78,48 +80,54 @@ demo_app.layout = html.Div(
             ]
         ),
         html.Div(
-            className="parameter-select",
+            className="parameters-area",
             children=[
-                html.H2("Assumed energy density [MW/km2]"),
-                dcc.Dropdown(
-                    id="ms-select",
-                    multi=False,
-                    options=[
-                        {"label": f"{ms}", "value": ms} for ms in df_table.__MS.unique()
+                html.Div(
+                    className="parameter-select",
+                    children=[
+                        html.H2("Assumed energy density [MW/km2]"),
+                        dcc.Dropdown(
+                            id="ms-select",
+                            multi=False,
+                            options=[
+                                {"label": f"{ms}", "value": ms}
+                                for ms in df_table.__MS.unique()
+                            ],
+                            value=85,
+                        ),
                     ],
-                    value=85,
                 ),
-            ],
-        ),
-        html.Div(
-            className="parameter-select",
-            children=[
-                html.H2("Percentage of the available non-artificial area"),
-                dcc.Dropdown(
-                    id="area-select",
-                    multi=False,
-                    options=[
-                        {"label": f"{p}", "value": p}
-                        for p in df_table.__percent_area.unique()
+                html.Div(
+                    className="parameter-select",
+                    children=[
+                        html.H2("Percentage of the available non-artificial area"),
+                        dcc.Dropdown(
+                            id="area-select",
+                            multi=False,
+                            options=[
+                                {"label": f"{p}", "value": p}
+                                for p in df_table.__percent_area.unique()
+                            ],
+                            value=3,
+                        ),
                     ],
-                    value=3,
                 ),
-            ],
-        ),
-        html.Div(
-            className="parameter-select",
-            children=[
-                html.H2("Type of surface for renewable generation"),
-                dcc.Dropdown(
-                    id="surface-select",
-                    multi=False,
-                    options=[
-                        {"label": c, "value": c}
-                        for c in df_map.columns
-                        if "__"
-                        not in c  # this is to escape the unwanted columns of the dataframe
+                html.Div(
+                    className="parameter-select",
+                    children=[
+                        html.H2("Type of surface for renewable generation"),
+                        dcc.Dropdown(
+                            id="surface-select",
+                            multi=False,
+                            options=[
+                                {"label": c, "value": c}
+                                for c in df_map.columns
+                                if "__"
+                                not in c  # this is to escape the unwanted columns of the dataframe
+                            ],
+                            value=init_data,
+                        ),
                     ],
-                    value=init_data,
                 ),
             ],
         ),
@@ -146,7 +154,11 @@ demo_app.layout = html.Div(
                                     "type": "bar",
                                     "name": df_map.__country,
                                 }
-                            ]
+                            ],
+                            "layout": {
+                                "margin": dict(t=50, b=100),
+                                "yaxis": dict(title="Generation potential [TWh]"),
+                            },
                         },
                     ),
                 ),
@@ -160,14 +172,22 @@ demo_app.layout = html.Div(
                 columns=[{"name": "Country", "id": "__country"}]
                 + [{"name": c, "id": c} for c in df_map.columns if "__" not in c],
                 data=df_map.to_dict("records"),
-                style_table={"maxHeight": "300px", "overflowY": "scroll"},
+                # style_table={"maxHeight": "300px"},
                 filter_action="native",
                 sort_action="native",
-                # fixed_rows={'headers': True, 'data': 0}
+                fixed_rows={"headers": True, "data": 0},
+                style_cell_conditional=[
+                    {
+                        "if": {"column_id": "__country"},
+                        "width": "10%",
+                        "min-width": "60px",
+                        "text-align": "left",
+                    },
+                    {"if": {"column_id": "TOTAL"}, "width": "15%", "min-width": "80px"},
+                ],
             ),
         ),
-        m,
-    ]
+    ],
 )
 
 # More information in the reference https://dash.plotly.com/basic-callbacks
@@ -224,12 +244,12 @@ def update_figure(ms, percent_area, surface_type, cur_map, cur_barplot):
     return cur_map, cur_barplot
 
 
-# # This is not good pratice to not group all import at the top of the module, it is only done here
-# # for pedagogical purposes
-# from app_step2_callback import assign_callbacks
-#
-# # Another way to define the callbacks in a function in another module
-# assign_callbacks(app_handle=demo_app, data=df_table)
+# This is not good pratice to not group all import at the top of the module, it is only done here
+# for pedagogical purposes
+from app_step2_callback import assign_callbacks
+
+# Another way to define the callbacks in a function in another module
+assign_callbacks(app_handle=demo_app, data=df_table)
 
 
 if __name__ == "__main__":
