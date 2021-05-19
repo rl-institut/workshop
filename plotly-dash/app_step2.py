@@ -44,7 +44,6 @@ initial_map = go.Figure(
 )
 
 initial_map.update_layout(
-    title_text=init_data,
     geo=dict(
         showframe=False,
         showcoastlines=False,
