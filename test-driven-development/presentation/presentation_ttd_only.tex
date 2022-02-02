@@ -1,0 +1,106 @@
+\documentclass{beamer}
+
+\input{template/2019-08-23-rli-beamer-template-stylev0-0.tex}
+\setbeamertemplate{footline}[frame number]
+\usepackage{amsmath}
+\usepackage{tikz}
+
+% Overlays for TIKZ pictures
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+\title[Yo]{\textbf{SimRunde Workshop} \\ Python testing}
+\author{Pierre-Francois Duc\\
+}
+\institute{Reiner Lemoine Institut}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Agenda}
+ \begin{enumerate}
+  \item 2022-02-02: Unit test and test driven development
+  \item 2022-02-09: Continuous integration and automated tests on github
+ \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Why testing?}
+ \begin{enumerate}
+  \item To not ask yourself why you did not test when your code does not work 2 weeks before a project's end
+  \item To feel confident that your code is doing what you are expecting from it
+ \end{enumerate}
+
+ Coding without testing is like climbing without rope: it is fun and you feel free, but it is risky and you can hurt yourself badly :(
+ 
+\end{frame}
+
+\begin{frame}{Unit Tests: Idea}
+Goal:
+\begin{itemize}
+\item Isolate each part of the program and show that the individual parts are correct
+\item Allows refactoring of code at a later date, and makes sure the module is still working correctly
+\end{itemize}
+How:
+\begin{itemize}
+\item Many small independent and isolated tests
+\item Automated tests run by developer
+\item Used in TDD
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Unit Tests: Rules}
+Unit tests should be:
+\begin{description}
+
+\item[small] e.g. concentrate on single criteria, so that failing of a test directly points to underlying error \\
+Rule of thumb: Consider if the test is a logical AND between conditions or a logical OR . In the former case go for multiple assertions, in the latter create multiple test functions.
+\item[fast] in order to run whole test set after each change/save to the code
+\item[idempotent] e.g. should be order-independent and not rely on each other
+\item[isolated] e.g. should be independent of environment or external APIs
+\end{description}
+\end{frame}
+
+
+\begin{frame}{Other Tests}
+\begin{description}
+\item[Integration Test] \hfill\\
+Occurs after unit testing; combines multiple unit tests to a group and tests group outcome.\\
+Example:\\
+Login at GUI $\rightarrow$ API call $\rightarrow$ DB check $\rightarrow$ login
+\item[Regression Test] \hfill \\
+Re-running functional and non-functional tests to ensure that previously developed and tested software still performs after a change.
+\item[Smoke Test] \hfill\\
+Smoke tests are a subset of test cases that cover the most important functionality of a component or system, used to aid assessment of whether main functions of the software appear to work correctly.
+\item[...]
+\end{description}
+\end{frame}
+
+
+\begin{frame}{Now some demonstration}
+We have the requirements to write a function which can add up numbers. Let's do it following the TTD philosophy, step by step.
+\end{frame}
+
+
+\begin{frame}{Follow-up: next workshop}
+Everyone is welcome to join
+
+\vspace{15pt}
+
+It will happen on 2022-02-09 1230-1400 and we will see what type of tests one could implement on an existing repository and how to setup automated tests with github actions.
+ 
+\end{frame}
+
+
+
+\end{document}
+
