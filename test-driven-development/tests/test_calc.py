@@ -23,12 +23,10 @@ def test_add_three_numbers(c):
     assert res == 15, "some helpful message"
   
 
-from code_def.calc import Calc
-
 def test_add_many_numbers():
     s = range(100)
 
-    assert Calc().add(*s) == 4950 
+    assert Calculator().add(*s) == 4950
 
 # Exercise A
 # add a method to the class Calc with the following requirements :
