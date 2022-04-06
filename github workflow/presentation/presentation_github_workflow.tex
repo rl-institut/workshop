@@ -86,6 +86,24 @@ Once you pushed your changes, github will automatically propose you to open a Pu
 
 \end{frame}
 
+\begin{frame}{Preparing for code review}
+
+Reset commits but keep changes
+
+{\tt git checkout dev }
+{\tt git pull }
+{\tt git checkout feature/nameyoucomeupwith }(without the -b because it exists)
+{\tt git rebase -i dev }
+(solve potential conflicts)
+
+{\tt git reset --soft dev } 
+
+
+Make thoughful commits
+
+{\tt git push -f } (if you are alone on the branch it is ok, careful if more than one working on the branch)
+
+\end{frame}
 
 \begin{frame}{CI and checks}
 If we have time
