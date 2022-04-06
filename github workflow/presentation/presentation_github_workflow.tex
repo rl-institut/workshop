@@ -1,0 +1,102 @@
+\documentclass{beamer}
+
+\input{template/2019-08-23-rli-beamer-template-stylev0-0.tex}
+\setbeamertemplate{footline}[frame number]
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{listings}
+
+% Overlays for TIKZ pictures
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+\title[Yo]{\textbf{SimRunde Workshop} \\ Github workflow}
+\author{Pierre-Francois Duc\\
+}
+\institute{Reiner Lemoine Institut}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Why should you care?}
+
+ \begin{enumerate}
+  \item Help make the changes in the code more transparent, important for open\_source
+  \item Help reviewing and reviewing help avoiding bugs
+  \item Issue and resolution can be linked
+ \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Agenda}
+ \begin{enumerate}
+  \item Branch out
+  \item Commiting changes
+  \item Push changes and create pull request (or merge request for gitlab)
+  \item Interacting on the pull request (from now on PR) 
+  \item Preparing for code review
+  \item CI and checks, protecting branches
+  \item Merging the PR
+ \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Branch out}
+
+Main or develop (or dev) branch should not be used to push daily commits, one should work in a dedicated branch
+
+
+{\tt git checkout main}
+
+{\tt git pull}
+
+{\tt git checkout -b feature/nameyoucomeupwith}
+
+
+\end{frame}
+
+\begin{frame}{Commiting changes}
+
+Make changes locally and ``save'' them by commiting them, a commit can be parts of a file or several files or whole files. The idea is that a commit should be a conceptual change like ``Correct spelling mistakes'', or ``Improved paragraph 1 by elaborating on the benefit of berries on the diet''. Typically changes done reworking and entire book chapter for many hours should ideally not be packed into one commit. What is important is to still make the commits and push them to the remote to have backup of your work (and show your chefs you are making progress).
+
+{\tt git push} 
+
+\end{frame}
+
+\begin{frame}{Create pull request}
+Once you pushed your changes, github will automatically propose you to open a Pull Request, so you can click on the green button, don't worry you can edit most of its content later. You can even flag it as Draft Request to indicate that this is not ready yet for review.
+\end{frame}
+
+\begin{frame}{Interacting on pull request}
+\begin{itemize}
+ \item Comments (suggestions)
+ \item View changes
+ \item Commit view (come back on it after rework)
+ \item Linking with open Issues
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{CI and checks}
+If we have time
+\end{frame}
+
+\begin{frame}{Merging the PR}
+After it has been reviewed and approved, the person making the changes should normally merge the PR and delete the branch.
+
+\end{frame}
+
+
+
+\end{document}
+
