@@ -2,3 +2,4 @@ jupyterlab
 oemof
 pandas
 numpy
+matplotlib

@@ -1,0 +1,8 @@
+region_id,bev_mini,bev_medium,bev_luxury
+LR_Klein,10,5,5
+LR_Mitte,20,30,10
+LR_Zentr,5,5,5
+SR_Gross,5,5,5
+SR_Klein,1,1,5
+SR_Metro,10,30,20
+SR_Mitte,20,5,30
