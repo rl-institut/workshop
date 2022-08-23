@@ -18,6 +18,9 @@ Each folder contains a single workshop
 - [plotly-dash](plotly-dash)
 - [flask](flask)
 - [fastapi](fastapi)
+### Grid tools
+- [ding0](ding0)
+
 
 ## Getting started
 clone the repository locally with
