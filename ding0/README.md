@@ -19,7 +19,8 @@ As above or see https://dingo.readthedocs.io
 
 ## Presentation
 
-You can find the workshop slides in [slides/2022-08-23_ding0.pdf](slides/2022-08-23_ding0.pdf)
+- You can find the workshop slides in [slides/2022-08-23_ding0.pdf](slides/2022-08-23_ding0.pdf)
+- The session has been recorded, you can find it in the RLI's `07_Info/Weiterbildungen/` dir
 
 ## Useful links
 
