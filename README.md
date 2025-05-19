@@ -10,6 +10,8 @@ Each folder contains a single workshop
 - [python-pandas](python-pandas)
     the original source of this workshop is https://github.com/jvns/pandas-cookbook
 - [learn-python](learn-python)
+### Git and GitHub
+- [git-workflow](git-workflow)
 ### Coding development
 - [test-driven-development](test-driven-development)
 ### Data processing and workflow
