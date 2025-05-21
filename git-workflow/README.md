@@ -11,3 +11,6 @@ move pie to a different module
 
 ## Reference
 https://docs.github.com/en/get-started/quickstart/github-flow
+
+## Presentation
+Resources needed to compile the presentation in LaTeX format (beamer template and RLI logo) can be found in the test-driven-development workshop folder.  
