@@ -61,7 +61,7 @@ cd workshop/knowledge_sharing/data_pipelines/material/
 ```bash
 uv venv
 source .venv/bin/activate
-uv pip install snakemake requests pandas geopandas folium
+uv pip install snakemake requests pandas geopandas folium matplotlib
 ```
 
 ### 5. Smoke test
