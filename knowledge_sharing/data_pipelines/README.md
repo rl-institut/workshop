@@ -102,6 +102,13 @@ Build the graph (DAG) by
 snakemake -j1 --dag | dot -Tsvg > dag.svg
 ```
 
+**Note:** this requires *pygraphviz* which you can install using
+`apt install graphviz` (on win, this should work inside WSL too).
+
+It should look like this:
+
+![dag.svg](material/dag.svg)
+
 ---
 
 ## Exercise
