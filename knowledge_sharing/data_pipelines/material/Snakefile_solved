@@ -1,0 +1,87 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+rule all:
+    """Master rule"""
+    input:
+        # "data/wind_turbines.geojson",
+        # "data/federal_states.geojson",
+        # "data/wind_capacity_by_state.geojson",
+        "output/wind_capacity_map.html",
+        "output/wind_capacity_histogram.png",
+
+
+rule download_wind_turbines:
+    """Download wind turbines from MaStR API"""
+    output:
+        json="data/wind_turbines.geojson",
+        csv="data/wind_turbines.csv",
+    script:
+        "scripts/wind_turbines.py"
+
+
+rule download_federal_states:
+    """Download wind turbines from BKG API"""
+    output:
+        "data/federal_states.geojson",
+    script:
+        "scripts/federal_states.py"
+
+
+rule wind_capacity_by_state:
+    """Calculate total wind capacity by state"""
+    input:
+        turbines="data/wind_turbines.geojson",
+        states="data/federal_states.geojson",
+    output:
+        "data/wind_capacity_by_state.geojson",
+    script:
+        "scripts/wind_capacity_by_state.py"
+
+
+rule create_map:
+    """Create interactive HTML map"""
+    input:
+        rules.wind_capacity_by_state.output,
+    output:
+        "output/wind_capacity_map.html",
+    script:
+        "scripts/create_map.py"
+
+
+# EXERCISE:
+# 1. Define inputs and outputs
+#    - use `data/wind_turbines.csv` as input
+#    - use `output/wind_capacity_histogram.png` as output
+# 2. Read input and create histogram - hint: plt.hist()
+# 3. Write output - hint: plt.savefig()
+# ==================================================
+rule create_wind_capacity_histogram:
+    """Create wind capacity histogram"""
+    input:
+        turbines="data/wind_turbines.csv",
+    output:
+        "output/wind_capacity_histogram.png",
+    run:
+        # INSERT PYTHON CODE HERE
+        # pass
+        turbines = pd.read_csv(input.turbines)
+        plt.hist(turbines["Nettonennleistung"], bins=20)
+        plt.title("Anzahl WEA in Deutschland nach Nennleistung")
+        plt.xlabel("Leistung in MW")
+        plt.ylabel("Anzahl")
+        plt.savefig("output/wind_capacity_histogram.png")
+
+# ==================================================
+
+
+rule clean_up:
+    """Delete all intermediate and output files"""
+    shell:
+        """
+        rm -f output/wind_capacity_map.html
+        rm -f output/wind_capacity_histogram.png
+        rm -f data/*.geojson
+        rm -f data/*.csv
+        """
